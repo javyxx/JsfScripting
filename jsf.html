@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+ <head>
+   <meta charset="utf-8"/>
+   <title>Jsf over Jquery</title>
+
+   <style type="text/css">
+	.red {
+		color: red;
+		background-color: #d8da3d 
+	}
+    .nueva {
+		color: blue;
+	}
+  </style>
+ </head>
+
+  
+ <body>
+   <script src="lib/jquery-1.6.4.min.js"></script>
+   <script src="src/JsfScripting.core.js"></script>
+   <script src="src/generic.render.js"></script>
+   <script src="app.js"></script>
+   <img id="loading" src="images/ajax-loader.gif"></img>
+   
+   <div id="jsf">
+
+		<h:outputText id="ejemploid" styleClass="nueva"  value="Modelo:"></h:outputText>
+		<h:inputText id="modelo" size="50" styleClass="nueva"  value="#{coche.modelo}"></h:inputText>
+		<h:outputText styleClass="nueva"  value="Precio:"></h:outputText>
+		<h:inputText id="precio" size="50" styleClass="nueva"  value="#{coche.precio}"></h:inputText>
+		<br/>
+		<br/>
+		<h:outputText styleClass="nueva"  value="Ruedas:"></h:outputText>
+		<h:inputText id="ruedas" styleClass="red"  value="#{coche.ruedas.modelo}"></h:inputText>
+		<br/>
+		<br/>
+		<h:commandButton value="Get" action="#{coche.get}"></h:commandButton>
+		
+		<h:commandButton value="Post" action="#{coche.post}"></h:commandButton>
+
+	
+	</div>
+
+ </body>
+ </html>

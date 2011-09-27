@@ -1,0 +1,38 @@
+Engime JSF implemented in Jquery:
+- Simplifie create Jsf pages for prototype runing in standar web browser.
+- Use por template pages in client mode.
+- Simplifie create and easy integrate withd other server tecnologies ( standar restfull apps )
+- Very much scalability tecnologic not overload a server.
+
+  
+Use: 
+  Create standar JSF tags in your page:
+  		<h:outputText styleClass="nueva"  value="Precio:"></h:outputText>
+		<h:inputText id="precio" size="50" styleClass="nueva"  value="#{carManageBean.precio}"></h:inputText>
+		<h:commandButton value="Get" action="#{carAction.get}"></h:commandButton>
+  Add libs in your page: 
+		<script src="lib/jquery-1.6.4.min.js"></script>
+		<script src="src/JsfScripting.core.js"></script>
+		<script src="src/generic.render.js"></script> 
+  Emule ManageBean and Action:
+    var modelo = {	 
+       carManageBean: {
+		modelo: "Ferrari F-50",
+		precio: 123000,
+	   }
+      };    
+
+     var action = { carAction: {} };
+
+    function genFromServer(){
+	      url = "http://genvirt.net84.net/getJsonp.php?nombre=fichero.xml";   
+          JsfScripting.searchModelFromUrl(url, function ( data ){
+		        JsfScripting.set(data);
+	  });
+     }
+	  action.coche.get = genFromServer;
+	  
+   Init lib:
+     JsfScripting.initJsfScripting(modelo, action);
+
+     JsfScripting.start()
