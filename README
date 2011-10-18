@@ -30,7 +30,7 @@ Use:
 		        JsfScripting.set(data);
 	  });
      }
-	  action.coche.get = genFromServer;
+	  action.carAction.get = genFromServer;
 	  
    Init lib:
      JsfScripting.initJsfScripting(modelo, action);
